@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Lesson 03</title>
+</head>
+<body ng-controller="ApplicationController as vm">
+    <h1>Products</h1>
+
+    <ul>
+        <li ng-repeat="product in vm.products">
+            {{product.name}} - {{product.price}}
+        </li>
+    </ul>
+
+    <hr />
+
+    <form ng-submit="vm.save()">
+        <ul ng-if="vm.validationErrors">
+            <li ng-repeat="error in vm.validationErrors">
+                {{error}}
+            </li>
+        </ul>
+        <label>
+            Id: <input type="text" ng-model="vm.product.id" />
+        </label>
+        <br />
+        <label>
+            Name: <input type="text" ng-model="vm.product.name" />
+        </label>
+        <br />
+        <label>
+            Price: <input type="text" ng-model="vm.product.price" />
+        </label>
+        <br />
+        <button type="submit">Save</button>
+    </form>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
